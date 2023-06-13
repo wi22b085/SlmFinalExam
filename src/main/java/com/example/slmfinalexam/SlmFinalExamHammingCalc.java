@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SlmFinalExamHammingCalc {
 
-    String string;
+    String string="0";
     @RequestMapping("api/hamming")
     public int hamcalc(@RequestParam String string){
         int cnt=0;
