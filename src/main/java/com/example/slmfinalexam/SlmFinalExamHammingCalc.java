@@ -6,16 +6,25 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class SlmFinalExamHammingCalc {
+
+    String string;
     @RequestMapping("api/hamming")
-    public int hamcalc(@RequestParam int string){
+    public int hamcalc(@RequestParam String string){
         int cnt=0;
-        while(string!=0){
-            if (string%10!=0){
-                cnt++;
-            }
-            string/=10;
-        }
+       this.string=string;
+       for (char c: string.toCharArray()){
+           if (c != '0') {
+               cnt++;
+           }
+       }
         return cnt;
+    }
+
+
+    @RequestMapping("api/hamming/previous")
+    public String prevnumber(){
+        String currentnumb=string;
+        return currentnumb;
     }
 
 }
